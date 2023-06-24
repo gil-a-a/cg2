@@ -56,7 +56,7 @@ void Polygon::scanline (Screen & screen) const {
 	
 	int y = ET.getYMin();
 	
-    int bits[2][2] = {{1,1},{0,0}};
+    int bits[3][3] = {{0,0,0},{0,0,0},{1,1,1}};	//tenho q dar uma olhada em como q o scanline desenha os pontos na tela, pq n consegui desenhar um padrão
     int i, j;
     // Laço principal
 	while (y <= ET.getYMax()) {
@@ -73,9 +73,9 @@ void Polygon::scanline (Screen & screen) const {
         while (AET.getOneBlockLimits(&xI, &xF)) {
         	
 			for (int x = round(xI); x <= floor(xF); x++) {
-				if (i > 1)
+				if (i > 2)
 					i = 0;
-				if (j > 1){
+				if (j > 2){
 					j = 0;
 					i++;
 				}
@@ -127,6 +127,7 @@ void Polygon::scanline (Screen & screen) const {
         // Para cada aresta na AET, atualize x = x + 1/m
         AET.updateXValues();
     }
+    //Esse é o scanline original
     */
 }
 

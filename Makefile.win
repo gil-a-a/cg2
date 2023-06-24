@@ -6,13 +6,13 @@ CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 OBJ      = main.o screen.o point2D.o primitive.o line.o picture.o circle.o edgeInfo.o polygon.o edgeTable.o activeEdgeTable.o
 LINKOBJ  = main.o screen.o point2D.o primitive.o line.o picture.o circle.o edgeInfo.o polygon.o edgeTable.o activeEdgeTable.o
-LIBS     = -L"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -L"D:/Documents/1melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/lib" -lmingw32 -lSDL2main -lSDL2 -g3
-INCS     = -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/Documents/1melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/include"
-CXXINCS  = -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"D:/Documents/1melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/include"
+LIBS     = -L"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -L"D:/Documents/_melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/lib" -lmingw32 -lSDL2main -lSDL2 -g3
+INCS     = -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/Documents/_melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/include"
+CXXINCS  = -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"D:/Documents/_melhores programas 2008/Semestre 5/CG/Atividade_2_Gil/DevC++/src/include"
 BIN      = CG.exe
 CXXFLAGS = $(CXXINCS) -g3 -O0
 CFLAGS   = $(INCS) -g3 -O0
-DEL      = D:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+DEL      = D:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
 
 .PHONY: all all-before all-after clean clean-custom
 

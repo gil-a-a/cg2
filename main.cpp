@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     // Aula - Preenchimento de Polígonos
     Screen screen2("Aula 4", BLACK, 700, 700);
 
-	//Exemplo 1
+	//Exemplo 1 - Polígono da aula
 //	/*
 	Polygon pol(true, RED, true, WHITE);
 	Point2D v1(20,30,GREEN);
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 	pol.addVertex(&v6);
 //	*/
 	
-	//Exemplo 2
+	//Exemplo 2 - Fábrica
 	/*
 	Polygon pol2(true, RED, true, WHITE);
 	Point2D v1pol2(20,30,GREEN);
@@ -80,9 +80,9 @@ int main(int argc, char *argv[])
 	pol2.addVertex(&v6pol2);
 	pol2.addVertex(&v7pol2);
 	pol2.addVertex(&v8pol2);
-	*/
+//	*/
 	
-	//Exemplo 3
+	//Exemplo 3 - Estrela torta
 	/*
 	Polygon pol3(true, RED, true, WHITE);
 	Point2D v1pol3(20, 50, GREEN);
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 	pol3.addVertex(&v8pol3);
 	pol3.addVertex(&v9pol3);
 	pol3.addVertex(&v10pol3);
-	*/
+//	*/
 	
 	Picture p2;
 	p2.add(&pol);
