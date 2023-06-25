@@ -10,37 +10,8 @@
 
 int main(int argc, char *argv[])
 {
-    /*Screen screen("Aula 3", BLACK, 700, 700);
-
-    Point2D p3(350, 450);
-
-    Picture p;
-    
-    // Telhado
-    Line l1(Point2D(350, 50), Point2D(50, 250), RED);
-    Line l2(Point2D(50, 250), Point2D(650, 250), RED);
-    Line l3(Point2D(650, 250), Point2D(350, 50), RED);
-        
-    // Parede
-    Line l4(Point2D(50, 250), Point2D(50, 650), GREEN);
-    Line l5(Point2D(50, 650), Point2D(650, 650), GREEN);
-    Line l6(Point2D(650, 650), Point2D(650, 250), GREEN);
-        
-    Circle circ(p3, 150, BLUE);
-        
-    // Insere primitivas na lista
-    p.add(&l1);
-    p.add(&l2);
-    p.add(&l3);
-    p.add(&l4);
-    p.add(&l5);
-    p.add(&l6);
-    p.add(&circ);
-        
-    screen.run(p);*/
-    
-    // Aula - Preenchimento de Polígonos
-    Screen screen2("Aula 4", BLACK, 700, 700);
+    // Preenchimento de Polígonos
+    Screen screen("Atividade 2", BLACK, 700, 700);
 
 	//Exemplo 1 - Polígono da aula
 //	/*
@@ -108,12 +79,11 @@ int main(int argc, char *argv[])
 	pol3.addVertex(&v10pol3);
 //	*/
 	
-	Picture p2;
-	p2.add(&pol);
-//	p2.add(&pol2);
-//	p2.add(&pol3);
+	Picture pic;
+	pic.add(&pol);	//Polígono da aula
+//	pic.add(&pol2);	//Polígono da fábrica
+//	pic.add(&pol3)	//Estrela
 	
-	screen2.run(p2);
-
-    return 0;
+	screen.run(pic)
+	return 0;
 }
