@@ -49,16 +49,27 @@ void Polygon::addVertex(Point2D *p) {
 	listOfPoints.push_back(p);
 }
 
+/*
+2. Modifique a implementação do algoritmo Scanline para gerar áreas preenchidas com determinado padrão de preenchimento (hachuras). 
+A ideia é fazer uma implementação que aceite qualquer padrão passado como parâmetro. 
+Uma ideia consiste em usar uma matriz para representar um padrão, composto de valores 0 e 1 que definem a hachura a ser desenhada. 
+Faça 3 exemplos usando três padrões diferentes. DICA: Lembre do preenchimento de circunferências.
+*/
+
 void Polygon::scanline (Screen & screen) const {
 	EdgeTable ET(listOfPoints);
 	
 	ActiveEdgeTable AET;
 	
 	int y = ET.getYMin();
+
+	const int tam_matriz = 3;	// 0 = Não tem padrão de preenchimento
+    	int bits[tam_matriz][tam_matriz] = {{0,0,0},{0,0,0},{1,1,1}};	//Listras finas
+					/*{{1,0,0},{1,0,0},{1,0,0}};	//Listras grossas*/
+					/*{{1,1,1,0,0,0},{1,1,1,0,0,0},{1,1,1,0,0,0},{0,0,0,1,1,1},{0,0,0,1,1,1},{0,0,0,1,1,1}}; //tam_matriz = 6*/
 	
-    int bits[3][3] = {{0,0,0},{0,0,0},{1,1,1}};	//tenho q dar uma olhada em como q o scanline desenha os pontos na tela, pq n consegui desenhar um padrão
-    int i, j;
-    // Laço principal
+	int i, j;
+    	// Laço principal
 	while (y <= ET.getYMax()) {
         //# Move a lista y na ET para AET (ymin = y), mantendo a AET ordenada em x
         AET.extend(ET.getList(y));
@@ -69,13 +80,14 @@ void Polygon::scanline (Screen & screen) const {
         // usando os pares de coordenadas x da AET (cada dois nós definem um bloco)
 		double xI, xF;
 		i = 0;
-        j = 0;
-        while (AET.getOneBlockLimits(&xI, &xF)) {
+        	j = 0;
+        if (tam_matriz > 0) {
+		while (AET.getOneBlockLimits(&xI, &xF)) {
         	
 			for (int x = round(xI); x <= floor(xF); x++) {
-				if (i > 2)
+				if (i > tam_matriz-1)
 					i = 0;
-				if (j > 2){
+				if (j > tam_matriz-1){
 					j = 0;
 					i++;
 				}
@@ -85,7 +97,14 @@ void Polygon::scanline (Screen & screen) const {
 				
 				j++;
 			}
-        }
+        	}
+	}
+	else {
+		while (AET.getOneBlockLimits(&xI, &xF)) {
+	        	for (int x = round(xI); x <= floor(xF); x++)	
+	        		screen.setPixel(x, y, fillColor);
+	        }
+	}
         
 		std::cout << "Linha y = " << y <<": ";
 		sequenciaBit(AET);
@@ -99,36 +118,6 @@ void Polygon::scanline (Screen & screen) const {
         // Para cada aresta na AET, atualize x = x + 1/m
         AET.updateXValues();
     }
-    
-    /*
-    while (y <= ET.getYMax()) {
-        //# Move a lista y na ET para AET (ymin = y), mantendo a AET ordenada em x
-        AET.extend(ET.getList(y));
-        ET.clearList(y);
-        AET.sort();
-              
-        // Desenhe os pixels do bloco na linha de varredura y, 
-        // usando os pares de coordenadas x da AET (cada dois nós definem um bloco)
-		double xI, xF;
-        while (AET.getOneBlockLimits(&xI, &xF)) {
-        	for (int x = round(xI); x <= floor(xF); x++)	
-        		screen.setPixel(x, y, fillColor);
-        }
-        
-		std::cout << "Linha y = " << y <<": ";
-		sequenciaBit(AET);
-    	
-        //Atualiza o valor de y para a próxima linha de varredura
-        y = y + 1;
-        
-        // Remova as arestas que possuem ymax = y da AET
-        AET.removeEdgesByYMax(y);
-            
-        // Para cada aresta na AET, atualize x = x + 1/m
-        AET.updateXValues();
-    }
-    //Esse é o scanline original
-    */
 }
 
 /*
@@ -148,21 +137,3 @@ void Polygon::sequenciaBit(ActiveEdgeTable AET) const {
 	}
 	std::cout << "\n";
 }
-
-/*
-2. Modifique a implementação do algoritmo Scanline para gerar áreas preenchidas com determinado padrão de preenchimento (hachuras). 
-A ideia é fazer uma implementação que aceite qualquer padrão passado como parâmetro. 
-Uma ideia consiste em usar uma matriz para representar um padrão, composto de valores 0 e 1 que definem a hachura a ser desenhada. 
-Faça 3 exemplos usando três padrões diferentes. DICA: Lembre do preenchimento de circunferências.
-*/
-
-
-
-
-
-
-
-
-
-
-
